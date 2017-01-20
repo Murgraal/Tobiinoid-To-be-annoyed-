@@ -10,8 +10,6 @@ public class InputManager : MonoBehaviour
 	public GameObject _core,_core2;
 	public enum Direction{right,left};
 	public Direction direction;
-	public Vector2 _direction;
-	public float _angle;
 	// Use this for initialization
 
 	void Awake()
@@ -31,7 +29,6 @@ public class InputManager : MonoBehaviour
 
 	void Update () 
 	{
-		//_direction = _core.transform.position - new Vector3
 		print (_angle);
 		if (Input.GetAxis("Horizontal") < -0.5)
 			_core.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; ; 
@@ -41,18 +38,5 @@ public class InputManager : MonoBehaviour
 			_core2.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; 
 		if (Input.GetAxis("horizontal") > 0.5)
 			_core2.transform.eulerAngles -= new Vector3 (0, 0, _speed) * Time.deltaTime;
-
-			
-		/*	direction = Direction.left;
-		if (Input.GetKey (KeyCode.A) && direction == Direction.left) 
-		{
-			_core.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; 
-		}
-		if (Input.GetKeyDown (KeyCode.D))
-			direction = Direction.right;
-		if (Input.GetKey (KeyCode.D) && direction == Direction.right) 
-		{
-			_core.transform.eulerAngles -= new Vector3 (0, 0, _speed) * Time.deltaTime;
-		} */
 	}
 }
