@@ -25,7 +25,7 @@ public class Wave : MonoBehaviour
         {
             Debug.Log("TIME TO DIE");
 
-            Destroy();
+            //Destroy();
         }
     }
 }
