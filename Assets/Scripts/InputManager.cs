@@ -29,7 +29,6 @@ public class InputManager : MonoBehaviour
 
 	void Update () 
 	{
-		print (_angle);
 		if (Input.GetAxis("Horizontal") < -0.5)
 			_core.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; ; 
 		if (Input.GetAxis("Horizontal") > 0.5)
