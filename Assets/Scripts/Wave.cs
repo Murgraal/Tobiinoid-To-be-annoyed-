@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    private float expandRate = 0.2f;
-    private float aliveTime = 3.0f;
+	public float despawntimer;
+	public AnimationClip clip;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+		despawntimer = clip.length;
 	}
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale += new Vector3(expandRate, expandRate, 0);
-
-        aliveTime -= Time.deltaTime;
-
-        // remove condition
-        if (aliveTime <= 0)
-        {
-            Debug.Log("TIME TO DIE");
-
-            //Destroy();
-        }
+		despawntimer -= Time.deltaTime;
+		if (despawntimer < 0)
+			Destroy (gameObject);
     }
 }
