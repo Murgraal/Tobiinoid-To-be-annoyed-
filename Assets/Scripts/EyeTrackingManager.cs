@@ -26,7 +26,11 @@ public class EyeTrackingManager : MonoBehaviour {
 
 		if (EyeTracking.GetFocusedObject() != null)
 		{
+		if (EyeTracking.GetFocusedObject ().name == "node")
 		EyeTracking.GetFocusedObject ().GetComponent<Node> ().isActive = true;
+		
+		/*	if (EyeTracking.GetFocusedObject ().name == "node")
+				UpgradeManager.Instance.currentUpgrade = CurrentUpgrade.doublespeed; */
 		}
 
 	}
