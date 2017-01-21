@@ -12,6 +12,8 @@ public class BallScript : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col)
 	{
+        print("tag name: " + col.gameObject.tag);
+
 		if (col.gameObject.tag == "centerhex") 
 		{
 			GameManager.instance.updateScore (100);
@@ -27,9 +29,29 @@ public class BallScript : MonoBehaviour {
 			GameManager.instance.updateScore (25);
             SoundManager.instance.PlaySingleByTag("outerhex");
         }
-	}
+    }
 
-	void Start () 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "innerbump")
+        {
+            SoundManager.instance.PlaySingleByTag("innerbump");
+        }
+        if (col.gameObject.tag == "outerbump")
+        {
+            SoundManager.instance.PlaySingleByTag("outerbump");
+        }
+        if (col.gameObject.tag == "wall")
+        {
+            SoundManager.instance.PlaySingleByTag("wall");
+        }
+        if (col.gameObject.tag == "pulse")
+        {
+            SoundManager.instance.PlaySingleByTag("pulse");
+        }
+    }
+
+    void Start () 
 	{
 		rigid = GetComponent<Rigidbody2D> ();
 		rigid.AddForce (Vector2.left * 1, ForceMode2D.Impulse);

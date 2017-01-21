@@ -59,10 +59,10 @@ public class SoundManager : MonoBehaviour
             case "outerhex":
                 clip = outerhex;
                 break;
-            case "innerbumper":
+            case "innerbump":
                 clip = innerbumper;
                 break;
-            case "outerbumper":
+            case "outerbump":
                 clip = outerbumper;
                 break;
             case "wall":
