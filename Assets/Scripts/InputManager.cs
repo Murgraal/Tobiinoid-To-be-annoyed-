@@ -28,14 +28,12 @@ public class InputManager : MonoBehaviour
 		_core2 = GameObject.Find ("Core2");
 	}
 
-
-
 	void Update () 
 	{
 		if (Input.GetAxis("Horizontal") < -0.5)
-			_core.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; ; 
+			_core.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime;
 		if (Input.GetAxis("Horizontal") > 0.5)
-			_core.transform.eulerAngles -= new Vector3 (0, 0, _speed) * Time.deltaTime;;
+			_core.transform.eulerAngles -= new Vector3 (0, 0, _speed) * Time.deltaTime;
 		if (Input.GetAxis("horizontal") < -0.5)
 			_core2.transform.eulerAngles += new Vector3 (0, 0, _speed) * Time.deltaTime; 
 		if (Input.GetAxis("horizontal") > 0.5)

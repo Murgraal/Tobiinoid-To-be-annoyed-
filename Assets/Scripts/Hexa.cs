@@ -9,7 +9,7 @@ public class Hexa : MonoBehaviour
 	private CircleCollider2D collider;
 	private Animator anim;
 	public GameObject particle;
-	public Vector3 direction;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,7 +21,7 @@ public class Hexa : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			direction = col.gameObject.tag col.contacts[0];
+			//direction = col.gameObject.tag col.contacts[0];
 			Vanish ();
 		}	
 	}
@@ -31,6 +31,7 @@ public class Hexa : MonoBehaviour
 	{
 		anim.SetTrigger ("Shrink");
 		GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
+
 	}
 
 	void Update () 
