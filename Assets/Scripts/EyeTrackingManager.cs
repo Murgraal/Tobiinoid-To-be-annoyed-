@@ -7,12 +7,12 @@ public class EyeTrackingManager : MonoBehaviour {
 
 	public Vector2 _gazespot;
 	public GazePoint _gazepoint;
-	public GameObject spotchecker;
+
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		EyeTracking.Initialize ();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,12 @@ public class EyeTrackingManager : MonoBehaviour {
 		_gazespot = Camera.main.ScreenToWorldPoint (_gazepoint.Screen);
 
 		if (_gazepoint.IsValid && _gazepoint.IsWithinScreenBounds)
-		spotchecker.transform.position = _gazespot;
+			GameManager.instance.spotchecker.transform.position = _gazespot;
+
+		if (EyeTracking.GetFocusedObject ().name == "node") 
+		{
+			EyeTracking.GetFocusedObject ().GetComponent<Node> ().catched = true;
+		}
+
 	}
 }

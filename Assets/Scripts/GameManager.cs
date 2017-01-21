@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private float currentTime;
     private bool isPaused = true;
 
+	public GameObject spotchecker;
     public GameObject[] nodes;
 
     //Awake is always called before any Start functions
