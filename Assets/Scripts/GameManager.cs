@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;       //Allows us to use Lists. 
+using System.Collections.Generic;//Allows us to use Lists. 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
 
     // SCORE
-    private int score = 0;
+  	public int score = 0;
     private static int penalty = -100;                      // Penalty for going out of bounds?
     private static int center = 100;                        // Score value for core area
     private static int mid = 50;                            // Score value for mid ring
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private float currentTime;
     private bool isPaused = true;
 
+	public GameObject spotchecker;
     public GameObject[] nodes;
 
     //Awake is always called before any Start functions
