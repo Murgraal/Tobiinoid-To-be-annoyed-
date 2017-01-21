@@ -8,6 +8,7 @@ public class Hexa : MonoBehaviour
 	public bool startvanish;
 	private CircleCollider2D collider;
 	private Animator anim;
+	public GameObject particle;
 	// Use this for initialization
 	void Start () 
 	{
@@ -26,7 +27,8 @@ public class Hexa : MonoBehaviour
 
 	void Vanish()
 	{
-		anim.SetTrigger ("Shrink");	
+		anim.SetTrigger ("Shrink");
+		Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
 	}
 
 	void Update () 

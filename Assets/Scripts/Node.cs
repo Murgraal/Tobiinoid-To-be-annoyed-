@@ -30,7 +30,7 @@ public class Node : MonoBehaviour
 		float interval = maxtime / waveamount;
 		for (int i = 0; i < waveamount; i++) 
 		{
-			GameObject temp = Instantiate ((GameObject)wave, transform.position, Quaternion.identity);
+			GameObject temp = Instantiate ((GameObject)wave, transform.position,wave.transform.rotation);
 			yield return new WaitForSeconds (interval);
 		}
 		isActive = false;
