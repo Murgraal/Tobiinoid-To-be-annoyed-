@@ -7,7 +7,8 @@ public class BallScript : MonoBehaviour {
 	private Rigidbody2D rigid;
 	public float _minvelocityx;
 	public float _minvelocityy;
-
+	public Vector3 direction;
+	public GameObject particle;
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -34,18 +35,22 @@ public class BallScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "innerbump")
         {
+			GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
             SoundManager.instance.PlaySingleByTag("innerbump");
         }
         if (col.gameObject.tag == "outerbump")
         {
+			GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
             SoundManager.instance.PlaySingleByTag("outerbump");
         }
         if (col.gameObject.tag == "wall")
-        {
+		{			
+			GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
             SoundManager.instance.PlaySingleByTag("wall");
         }
         if (col.gameObject.tag == "pulse")
         {
+			GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
             SoundManager.instance.PlaySingleByTag("pulse");
         }
     }

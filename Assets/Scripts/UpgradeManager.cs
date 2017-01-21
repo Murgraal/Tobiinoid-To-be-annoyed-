@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour 
 {
 	public static UpgradeManager instance;
-	// Use this for initialization
+	public enum CurrentUpgrade{}
 
 	void Awake()
 	{
@@ -20,7 +20,8 @@ public class UpgradeManager : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
 	}
 }
