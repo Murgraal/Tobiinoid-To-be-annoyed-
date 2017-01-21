@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     // TIME
     private float maxTime = 120.0f;
-    private float currentTime;
+    public float currentTime;
     private bool isPaused = true;
 
 	public GameObject spotchecker;
@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     //Update is called every frame.
     void Update()
     {
+
+		currentTime -= Time.deltaTime;
         // debug
         if( Input.GetKeyUp("space"))
         {
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
         // timer
         if( !isPaused )
         {
-            currentTime -= Time.deltaTime;
+            
 
             Debug.Log("currentTime: " + currentTime);
 

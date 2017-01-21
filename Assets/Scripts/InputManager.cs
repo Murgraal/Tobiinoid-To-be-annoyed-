@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
 	public GameObject _core,_core2;
 	public enum Direction{right,left};
 	public Direction direction;
+	public GameObject wave;
 	// Use this for initialization
 
 	void Awake()
@@ -26,6 +27,8 @@ public class InputManager : MonoBehaviour
 		_core = GameObject.Find ("Core");
 		_core2 = GameObject.Find ("Core2");
 	}
+
+
 
 	void Update () 
 	{

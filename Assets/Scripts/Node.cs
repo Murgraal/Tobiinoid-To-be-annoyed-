@@ -4,46 +4,38 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    private bool isActive = false;
-    private float spawnInterval = 3.0f;
-    private float spawnTimer;
+	public bool isActive;
 
     public GameObject wave;
+	public float timer;
+	public bool isrunning;
     
 	// Use this for initialization
 	void Start ()
     {
-        isActive = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (isActive)
+		if (isActive && !isrunning)
         {
-            spawnTimer -= Time.deltaTime;
-
-            if (spawnTimer <= 0)
-            {
-                SpawnWave();
-            }
+			StartCoroutine (Pulse (1, 1f));
         }
 	}
 
-    public void Activate()
-    {
-        isActive = true;
+	public IEnumerator Pulse(int waveamount, float maxtime)
+	{
+		isrunning = true;
+		float interval = maxtime / waveamount;
+		for (int i = 0; i < waveamount; i++) 
+		{
+			GameObject temp = Instantiate ((GameObject)wave, transform.position, Quaternion.identity);
+			yield return new WaitForSeconds (interval);
+		}
+		isActive = false;
+		yield return null;
+		isrunning = false;
+	}
 
-        //Debug.Log("Activate");
-    }
-
-    private GameObject SpawnWave()
-    {
-        spawnTimer = spawnInterval;
-
-        wave = GameObject.Instantiate(wave as GameObject);
-        wave.transform.position = transform.position;
-
-        return wave;
-    }
 }

@@ -26,10 +26,8 @@ public class EyeTrackingManager : MonoBehaviour {
 
 		if (EyeTracking.GetFocusedObject() != null)
 		{
-			EyeTracking.GetFocusedObject ().GetComponent<Transform> ().localScale += Vector3.one * Time.deltaTime;
+		EyeTracking.GetFocusedObject ().GetComponent<Node> ().isActive = true;
 		}
-		
-			
 
 	}
 }
