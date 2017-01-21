@@ -21,7 +21,7 @@ public class Hexa : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			direction = col.gameObject.tag col.contacts[0];
+			//direction = col.gameObject.tag col.contacts[0];
 			Vanish ();
 		}	
 	}

@@ -76,9 +76,7 @@ public class GameManager : MonoBehaviour
         // timer
         if( !isPaused )
         {
-            
-
-            Debug.Log("currentTime: " + currentTime);
+            //Debug.Log("currentTime: " + currentTime);
 
             if( currentTime <= 0)
             {

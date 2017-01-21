@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
     public AudioSource efxSource;                   //Drag a reference to the audio source which will play the sound effects.
     public AudioSource musicSource;                 //Drag a reference to the audio source which will play the music.
     public static SoundManager instance = null;     //Allows other scripts to call functions from SoundManager.             
-    public float lowPitchRange = .95f;              //The lowest a sound effect will be randomly pitched.
-    public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
+    public float lowPitchRange = .85f;              //The lowest a sound effect will be randomly pitched.
+    public float highPitchRange = 1.15f;            //The highest a sound effect will be randomly pitched.
 
     public AudioClip centerhex;
     public AudioClip innerhex;
@@ -16,6 +17,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip outerbumper;
     public AudioClip wall;
     public AudioClip pulse;
+
+    public List<AudioSource> audioSources;
+    private int audioId = 0;
 
     void Awake()
     {
@@ -30,8 +34,12 @@ public class SoundManager : MonoBehaviour
         
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
+        
+        for( int i = 0; i < audioSources.Count; i++)
+        {
+            audioSources[i] = this.gameObject.AddComponent<AudioSource>();
+        }
     }
-
 
     //Used to play single sound clips.
     //public void PlaySingle(AudioClip clip)
@@ -51,10 +59,10 @@ public class SoundManager : MonoBehaviour
             case "outerhex":
                 clip = outerhex;
                 break;
-            case "innerbumper":
+            case "innerbump":
                 clip = innerbumper;
                 break;
-            case "outerbumper":
+            case "outerbump":
                 clip = outerbumper;
                 break;
             case "wall":
@@ -71,6 +79,13 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        if (audioId == audioSources.Count - 1)
+            audioId = 0;
+        else
+            audioId++;
+
+        efxSource = audioSources[audioId];
+
         //Set the clip of our efxSource audio source to the clip passed in as a parameter.
         efxSource.clip = clip;
 
@@ -82,9 +97,8 @@ public class SoundManager : MonoBehaviour
         efxSource.Play();
     }
 
-
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
-    public void RandomizeSfx(params AudioClip[] clips)
+    /*public void RandomizeSfx(params AudioClip[] clips)
     {
         //Generate a random number between 0 and the length of our array of clips passed in.
         int randomIndex = Random.Range(0, clips.Length);
@@ -100,5 +114,5 @@ public class SoundManager : MonoBehaviour
 
         //Play the clip.
         efxSource.Play();
-    }
+    }//*/
 }
