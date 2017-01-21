@@ -18,6 +18,6 @@ public class UiManager : MonoBehaviour {
 	void Update () 
 	{
 		score.text = "Score\n" + GameManager.instance.score.ToString("0");
-		time.text = "Time\n" + GameManager.instance.currentTime.ToString ("0.0");
+		//time.text = "Time\n" + GameManager.instance.currentTime.ToString ("0.0");
 	}
 }

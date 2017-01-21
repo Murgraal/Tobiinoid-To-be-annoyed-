@@ -7,6 +7,7 @@ public class BallScript : MonoBehaviour {
 	private Rigidbody2D rigid;
 	public float _minvelocityx;
 	public float _minvelocityy;
+    //public SoundManager soundManager;
 
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col)
@@ -14,23 +15,24 @@ public class BallScript : MonoBehaviour {
 		if (col.gameObject.tag == "centerhex") 
 		{
 			GameManager.instance.updateScore (100);
+            SoundManager.instance.PlaySingleByTag("centerhex");
 		}
 		if (col.gameObject.tag == "innerhex") 
 		{
 			GameManager.instance.updateScore (50);
-		}
+            SoundManager.instance.PlaySingleByTag("innerhex");
+        }
 		if (col.gameObject.tag == "outerhex")
 		{
 			GameManager.instance.updateScore (25);
-		}
-
+            SoundManager.instance.PlaySingleByTag("outerhex");
+        }
 	}
 
 	void Start () 
 	{
-		
 		rigid = GetComponent<Rigidbody2D> ();
-		rigid.AddForce (Vector2.left * 1, ForceMode2D.Impulse);	
+		rigid.AddForce (Vector2.left * 1, ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame
