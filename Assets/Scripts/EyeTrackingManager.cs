@@ -24,10 +24,7 @@ public class EyeTrackingManager : MonoBehaviour {
 		if (_gazepoint.IsValid && _gazepoint.IsWithinScreenBounds)
 			GameManager.instance.spotchecker.transform.position = _gazespot;
 
-		if (EyeTracking.GetFocusedObject ().name == "node") 
-		{
-			EyeTracking.GetFocusedObject ().GetComponent<Node> ().catched = true;
-		}
+
 
 	}
 }
