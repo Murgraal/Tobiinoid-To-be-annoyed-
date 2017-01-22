@@ -5,21 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {	
-	public void StartGame()
-    {
-        print("navi to start");
-        SceneManager.LoadScene("InputTest");
-    }
-
-    public void GameOver()
-    {
-        print("navi to game");
-        SceneManager.LoadScene("Credits");
-    }
-
-    public void MainMenu()
-    {
-        print("navi to main");
-        SceneManager.LoadScene("Menu");
-    }
+	public void StartGame() { SceneManager.LoadScene("InputTest");}
+    public void GameOver() { SceneManager.LoadScene("Credits"); }
+    public void MainMenu() { SceneManager.LoadScene("Menu"); }
 }
