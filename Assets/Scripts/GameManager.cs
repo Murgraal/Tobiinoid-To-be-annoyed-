@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;//Allows us to use Lists. 
 using UnityEngine.SceneManagement;
 
+public enum Upgrades{none,mega,mini,dubbel,speed};
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
@@ -21,6 +23,10 @@ public class GameManager : MonoBehaviour
 
 	public GameObject spotchecker;
     public GameObject[] nodes;
+	public GameObject Paddle,innerpaddle;
+
+	public Upgrades upgrades;
+
 
     //Awake is always called before any Start functions
     void Awake()
