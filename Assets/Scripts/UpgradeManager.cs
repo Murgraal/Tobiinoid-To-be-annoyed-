@@ -22,9 +22,6 @@ public class UpgradeManager : MonoBehaviour
 	}
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.A))
-			SetDuration (5);
-
 		switch (GameManager.instance.upgrades) 
 		{
 		case Upgrades.none:
@@ -44,11 +41,7 @@ public class UpgradeManager : MonoBehaviour
 			break;
 		}
 	}
-
-	void SetDuration(float duration)
-	{
-		Timer = duration;
-	}
+		
 
 	void none(GameObject player)
 	{
@@ -59,51 +52,36 @@ public class UpgradeManager : MonoBehaviour
 
 	void mini(GameObject player)
 	{
-		Timer -= Time.deltaTime;
-		if (Timer > 0) {
 			player.transform.localScale = new Vector3 (2f
 			, player.transform.localScale.y
 				, player.transform.localScale.z);
-		}else
-		{
-			GameManager.instance.upgrades = Upgrades.none;
-		}
+		
 	}
 	void mega(GameObject player)
 	{
-		Timer -= Time.deltaTime;
-		if (Timer > 0) {
-			player.transform.localScale = new Vector3 (5f
+		player.transform.localScale = new Vector3 (5f
 			, player.transform.localScale.y
 				, player.transform.localScale.z);
-		} else
-		{
-			GameManager.instance.upgrades = Upgrades.none;
-		}
+
 	}
 	void dubbel(GameObject player)
 	{
-		Timer -= Time.deltaTime;
-		if (Timer > 0) {
-			player.SetActive(true);
-		} else
-		{
-			GameManager.instance.upgrades = Upgrades.none;
-		}
+	player.SetActive(true);	
 	}
 	void speed(float speed)
 	{
-		Timer -= Time.deltaTime;
-		if (Timer > 0) {
-			speed = 300;
-		} else 
-		{
-			GameManager.instance.upgrades = Upgrades.none;
-		}	
+	speed = 300;
 	}
-	void addballs(GameObject ball)
+	public void addballs(GameObject ball)
 	{
-		Instantiate ((GameObject)ball, Vector2.zero, Quaternion.identity);
+	Instantiate ((GameObject)ball, Vector2.zero, Quaternion.identity);
+	}
+	public void removeball(GameObject ball)
+	{
+		if (ball != null) 
+		{
+			Destroy (ball);
+		}
 	}
 	// Update is called once per frame
 
