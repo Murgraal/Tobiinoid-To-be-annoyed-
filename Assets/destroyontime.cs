@@ -7,7 +7,7 @@ public class destroyontime : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		timer = 2f;
+		timer = 6f;
 	}
 	
 	// Update is called once per frame

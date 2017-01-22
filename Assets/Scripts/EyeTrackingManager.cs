@@ -28,9 +28,23 @@ public class EyeTrackingManager : MonoBehaviour {
 		{
 		if (EyeTracking.GetFocusedObject ().name == "node")
 		EyeTracking.GetFocusedObject ().GetComponent<Node> ().isActive = true;
+		if (EyeTracking.GetFocusedObject ().name == "mini")
+		GameManager.instance.upgrades = Upgrades.mini;
+		if (EyeTracking.GetFocusedObject ().name == "mega")
+		GameManager.instance.upgrades = Upgrades.mega;
+		if (EyeTracking.GetFocusedObject ().name == "dubbel")
+		GameManager.instance.upgrades = Upgrades.dubbel;
+		if (EyeTracking.GetFocusedObject ().name == "nopower") 
+		{	
+			UpgradeManager.instance.removeball(GameObject.Find ("addedball"));
+			GameManager.instance.upgrades = Upgrades.none;
+		}
+		if (EyeTracking.GetFocusedObject ().name == "speed")
+		GameManager.instance.upgrades = Upgrades.speed;
+		if (EyeTracking.GetFocusedObject ().name == "addballs")
+		UpgradeManager.instance.addballs (GameManager.instance.addedball);
+			
 		
-		/*	if (EyeTracking.GetFocusedObject ().name == "node")
-				UpgradeManager.Instance.currentUpgrade = CurrentUpgrade.doublespeed; */
 		}
 
 	}

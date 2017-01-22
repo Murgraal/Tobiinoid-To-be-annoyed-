@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 	public GameObject Paddle,innerpaddle;
 
 	public Upgrades upgrades;
+	public GameObject addedball;
 
 
     //Awake is always called before any Start functions
