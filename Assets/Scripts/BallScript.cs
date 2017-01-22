@@ -46,6 +46,7 @@ public class BallScript : MonoBehaviour {
         if (col.gameObject.tag == "wall")
 		{			
 			GameObject temp = Instantiate ((GameObject)particle, transform.position, particle.transform.rotation);
+            GameManager.instance.updateScore(-100);
             SoundManager.instance.PlaySingleByTag("wall");
         }
         if (col.gameObject.tag == "pulse")

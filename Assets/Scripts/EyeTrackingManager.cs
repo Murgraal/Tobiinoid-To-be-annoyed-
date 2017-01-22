@@ -26,23 +26,43 @@ public class EyeTrackingManager : MonoBehaviour {
 
 		if (EyeTracking.GetFocusedObject() != null)
 		{
-		if (EyeTracking.GetFocusedObject ().name == "node")
+            print(EyeTracking.GetFocusedObject().tag);
+		if (EyeTracking.GetFocusedObject ().tag == "node")
 		EyeTracking.GetFocusedObject ().GetComponent<Node> ().isActive = true;
-		if (EyeTracking.GetFocusedObject ().name == "mini")
-		GameManager.instance.upgrades = Upgrades.mini;
-		if (EyeTracking.GetFocusedObject ().name == "mega")
-		GameManager.instance.upgrades = Upgrades.mega;
-		if (EyeTracking.GetFocusedObject ().name == "dubbel")
-		GameManager.instance.upgrades = Upgrades.dubbel;
-		if (EyeTracking.GetFocusedObject ().name == "nopower") 
-		{	
+
+            if (EyeTracking.GetFocusedObject().tag == "mini")
+            {
+                GameManager.instance.upgrades = Upgrades.mini;
+                Destroy(EyeTracking.GetFocusedObject());
+            }
+            if (EyeTracking.GetFocusedObject().tag == "mega")
+            {
+                GameManager.instance.upgrades = Upgrades.mega;
+                Destroy(EyeTracking.GetFocusedObject());
+            }
+
+            if (EyeTracking.GetFocusedObject().tag == "dubbel")
+            {
+                GameManager.instance.upgrades = Upgrades.dubbel;
+                Destroy(EyeTracking.GetFocusedObject());
+            }
+
+		    if (EyeTracking.GetFocusedObject ().tag == "nopower") 
+		    {	
 			UpgradeManager.instance.removeball(GameObject.Find ("addedball"));
 			GameManager.instance.upgrades = Upgrades.none;
-		}
-		if (EyeTracking.GetFocusedObject ().name == "speed")
-		GameManager.instance.upgrades = Upgrades.speed;
-		if (EyeTracking.GetFocusedObject ().name == "addballs")
-		UpgradeManager.instance.addballs (GameManager.instance.addedball);
+                Destroy(EyeTracking.GetFocusedObject());
+            }
+            if (EyeTracking.GetFocusedObject().tag == "speed")
+            {
+                GameManager.instance.upgrades = Upgrades.speed;
+                Destroy(EyeTracking.GetFocusedObject());
+            }
+            if (EyeTracking.GetFocusedObject().tag == "addballs")
+            {
+                UpgradeManager.instance.addballs(GameManager.instance.addedball);
+                Destroy(EyeTracking.GetFocusedObject());
+            }
 			
 		
 		}
