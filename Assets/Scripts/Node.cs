@@ -20,7 +20,7 @@ public class Node : MonoBehaviour
     {
 		if (isActive && !isrunning)
         {
-			StartCoroutine (Pulse (1, 1f));
+			StartCoroutine (Pulse (5, 3f));
         }
 	}
 
